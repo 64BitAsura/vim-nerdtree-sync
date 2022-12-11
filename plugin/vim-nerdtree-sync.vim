@@ -13,10 +13,10 @@ endfunction
 " calls NERDTreeFind iff NERDTree is active, current window contains a modifiable file, and we're not in vimdiff
 function! s:syncTree()
   if exists("g:nerdtree_sync_cursorline") && g:nerdtree_sync_cursorline == 1
-    if &modifiable && s:isNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff && bufname('%') !~# 'NERD_tree'
+    if &modifiable && s:isNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff && bufname('%') !~# 'Nerdtree'
       try
         NERDTreeFind
-        if bufname('%') =~# 'NERD_tree'
+        if bufname('%') =~# 'Nerdtree'
           setlocal cursorline
           wincmd p
         endif
